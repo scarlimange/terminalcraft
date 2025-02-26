@@ -100,7 +100,43 @@ Let's build some awesome terminal apps and hack the world together! 🌟`;
       case "prizes.md":
         return "Complete all challenges to win exclusive Hack Club stickers and bragging rights!";
       case "faq.md":
-        return "Q: Why a terminal?\nA: Because terminals are cool!\nQ: How do I get started?\nA: Try using the 'ls' command!";
+        return `# Frequently Asked Questions
+
+Q: How many projects can I submit?
+A: You can submit only one project. Make it count! Focus on quality and creativity.
+
+Q: I need help! Where can I get assistance?
+A: Join the <a href="https://hackclub.slack.com/archives/C08F58MT3GV" target="_blank" style="text-decoration: underline">#terminal-craft</a> channel on Slack! Our community is super friendly and always ready to help you out with coding, debugging, or brainstorming ideas.
+
+Q: What programming language should I use?
+A: You can use any programming language you're comfortable with! The only requirements are:
+   - Include clear build/installation instructions
+   - Provide either a runnable binary or detailed setup guide
+   - Ensure it works across different platforms
+
+Q: How do I share my terminal program?
+A: You have several options:
+   - GitHub Releases (recommended)
+   - Package managers like brew.sh
+   - Direct download links
+   Make sure your distribution method is easily accessible!
+
+Q: When's the deadline?
+A: March 19th! Make sure to submit before 11:59 PM in your local timezone.
+
+Q: Can my project be a game?
+A: Absolutely! Games are welcome and encouraged. The terminal is your canvas - create anything from text adventures to multiplayer games. Go wild with your creativity!
+
+Q: Do I have to use a specific framework?
+A: Not at all! Use whatever tools and frameworks you're comfortable with. The focus is on building something useful or fun that runs in the terminal.
+
+Q: What makes a good terminal project?
+A: The best terminal projects are:
+   - Useful or entertaining
+   - Easy to install and use
+   - Well-documented
+   - Creative in their approach
+   Remember: Simple but well-executed is better than complex but buggy!`;
       default:
         return `cat: ${filename}: No such file or directory`;
     }
