@@ -20,6 +20,10 @@
   font-family: "JetBrains Mono", monospace, serif;
 }
 
+pre {
+  font-family: "JetBrains Mono", monospace, serif;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

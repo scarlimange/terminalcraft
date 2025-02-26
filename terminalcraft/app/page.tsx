@@ -47,6 +47,9 @@ export default function Home() {
       case "cat": {
         return cat(commandAndParams[0]);
       }
+      case "help": {
+        return help();
+      }
       case "clear":
         return ""
       default:
@@ -81,13 +84,27 @@ And lo, though their ways be arcane and their scripts indecipherable to lesser m
     }
   }
 
+  function help() {
+    return `
+Available commands:
+  ls      - List all available files
+  cat     - Read the contents of a file (usage: cat filename)
+  whoami  - Display information about the current user
+  clear   - Clear the terminal screen
+  help    - Display this help message
+    `.trim();
+  }
+
   return (
     <div className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {history.map((entry, idx) => (
         entry.type === "input" ?
         (<Prompt key={idx} command={entry.content} readonly={true}  />)
         : (
-          <p key={idx}>{entry.content}</p>
+          !entry.content.includes("terminalcraft:") ? 
+          <pre key={idx}>{entry.content}</pre>
+          :
+          <pre key={idx} className="text-red-600">{entry.content}</pre>
         )
       ))}
 
