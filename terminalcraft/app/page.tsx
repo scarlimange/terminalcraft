@@ -154,7 +154,7 @@ Keep hacking and building awesome things! 🚀</p>
       }}
     >
       {/* Terminal Content */}
-      <div className="p-4">
+      <div>
         {history.map((entry, idx) => (
           entry.type === "input" ?
           (<Prompt key={idx} command={entry.content} readonly={true}  />)
