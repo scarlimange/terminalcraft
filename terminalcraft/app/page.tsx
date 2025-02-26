@@ -50,6 +50,9 @@ export default function Home() {
       case "help": {
         return help();
       }
+      case "hackclub": {
+        return hackclubFlag();
+      }
       case "clear":
         return ""
       default:
@@ -128,6 +131,17 @@ Available commands:
     `.trim();
   }
 
+  function hackclubFlag() {
+    return `
+<div class="flex flex-col items-start">
+  <img src="/hackclub.svg" alt="Hack Club Flag" style="width: 300px; height: auto;" />
+
+  <p class="mt-4">You found the secret Hack Club flag! 
+Keep hacking and building awesome things! 🚀</p>
+</div>
+    `.trim();
+  }
+
   return (
     <div 
       className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative bg-black"
@@ -140,15 +154,17 @@ Available commands:
       }}
     >
       {/* Terminal Content */}
-      <div >
+      <div className="p-4">
         {history.map((entry, idx) => (
           entry.type === "input" ?
           (<Prompt key={idx} command={entry.content} readonly={true}  />)
           : (
             !entry.content.includes("terminalcraft:") ? 
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full">{entry.content}</pre>
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full pl-28" 
+                 dangerouslySetInnerHTML={{ __html: entry.content }}
+                 style={{ lineHeight: '1.5' }}></pre>
             :
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full text-red-600">{entry.content}</pre>
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full pl-28 text-red-600">{entry.content}</pre>
           )
         ))}
       </div>
