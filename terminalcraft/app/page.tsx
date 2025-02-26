@@ -10,7 +10,10 @@ type CommandEntry = {
 
 export default function Home() {
   const [command, setCommand] = useState<string>('');
-  const [history, setHistory] = useState<CommandEntry[]>([]);
+  const [history, setHistory] = useState<CommandEntry[]>([{
+    type: "output",
+    content: "type 'help' to get started"
+  }]);
 
   function handleCommand(command: string) {
     if (command == "clear") {
