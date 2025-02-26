@@ -13,6 +13,12 @@ export default function Home() {
   const [history, setHistory] = useState<CommandEntry[]>([]);
 
   function handleCommand(command: string) {
+    if (command == "clear") {
+      setHistory([]);
+      setCommand("");
+      return
+    }
+
     // push the command the user typed
     const newHistory = [ ...history, {
       type: "input" ,
@@ -41,9 +47,8 @@ export default function Home() {
       case "cat": {
         return cat(commandAndParams[0]);
       }
-      case "": {
+      case "clear":
         return ""
-      }
       default:
         return `terminalcraft: could not find command: ${command}`
     }
