@@ -160,11 +160,11 @@ Keep hacking and building awesome things! 🚀</p>
           (<Prompt key={idx} command={entry.content} readonly={true}  />)
           : (
             !entry.content.includes("terminalcraft:") ? 
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full pl-28" 
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full" 
                  dangerouslySetInnerHTML={{ __html: entry.content }}
                  style={{ lineHeight: '1.5' }}></pre>
             :
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full pl-28 text-red-600">{entry.content}</pre>
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full text-red-600">{entry.content}</pre>
           )
         ))}
       </div>
