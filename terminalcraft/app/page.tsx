@@ -70,7 +70,30 @@ export default function Home() {
   function cat(filename: string) {
     switch (filename) {
       case "about.md":
-        return "Welcome to the Hack Club Terminal Challenge!\nThis is a fun way to explore and learn about terminal commands.";
+        return `# YSWS Hack Club: Browser Plugin: Terminal
+
+Get ready to build and publish your own terminal program and earn a **Raspberry Pi 4**! 🎉 This is your chance to create something useful, learn new skills, and get a cool prize.
+
+## What You Need to Do:
+1. **Build a Terminal App** that solves a problem or improves your workflow.
+2. **Get 10 Users** to use your program.
+3. **Make It Open-Source** so others can learn from it.
+4. **Support Both Unix (MacOS, Linux) and Windows** platforms.
+5. **Provide Clear Instructions** on how to build and run your app.
+
+### Tools You Can Use:
+- **Textualize** (Recommended for web sharing)
+- **Ncurses** (or any other framework)
+  
+## How to Get Involved:
+1. Keep an eye on the **#announcement** channel on Slack for all the details.
+2. Claim your **$5 grant** for a Chrome Web Store license (if applicable).
+3. Submit your project via **Airtable** for review!
+
+### Prize:
+- **Raspberry Pi 4** 🖥️ (or $35 value)
+
+Let's build some awesome terminal apps and hack the world together! 🌟`;
       case "prizes.md":
         return "Complete all challenges to win exclusive Hack Club stickers and bragging rights!";
       case "faq.md":
