@@ -24,6 +24,8 @@ export default function Home() {
       type: "output",
       content: runCommand(command)
     }]);
+
+    setCommand("");
   }
 
   function runCommand(fullCommand: string): string {
