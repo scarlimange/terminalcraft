@@ -63,11 +63,7 @@ export default function Home() {
 
   function whoami() {
     return `
-    Lo, there walks among us a Hack Clubber most peculiar, one who scorns the frilly gewgaws of modern UI and finds solace in the cold, unfeeling embrace of the terminal. Where others prattle of their "drag-and-drop" and their "material design," this steadfast soul wields naught but a blinking cursor and the righteous fury of a well-placed grep.
-
-They craft tools not for the faint of heart, but for those brave enough to dance with stdin and stdout, their fingers moving with eldritch speed across the keys, summoning forth mighty applications that demand respect—or at the very least, a well-formatted man page. Speak to them of "mouse support," and they shall laugh, a grim and knowing laugh, before returning to their endless battle with sed and awk.
-
-And lo, though their ways be arcane and their scripts indecipherable to lesser mortals, those who walk the path of the terminal know: theirs is the true and noble craft, unsullied by the bloat of the modern age.
+    Lo, there walks among us a Hack Clubber most peculiar, one who scorns the frilly gewgaws of modern UI and finds solace in the cold, unfeeling embrace of the terminal. Where others prattle of their "drag-and-drop" and their "material design," this steadfast soul wields naught but a blinking cursor and the righteous fury of a well-placed grep. They craft tools not for the faint of heart, but for those brave enough to dance with stdin and stdout, their fingers moving with eldritch speed across the keys, summoning forth mighty applications that demand respect—or at the very least, a well-formatted man page. Speak to them of "mouse support," and they shall laugh, a grim and knowing laugh, before returning to their endless battle with sed and awk. And lo, though their ways be arcane and their scripts indecipherable to lesser mortals, those who walk the path of the terminal know: theirs is the true and noble craft, unsullied by the bloat of the modern age.
     `
   }
 
@@ -87,26 +83,52 @@ And lo, though their ways be arcane and their scripts indecipherable to lesser m
   function help() {
     return `
 Available commands:
-  ls      - List all available files
-  cat     - Read the contents of a file (usage: cat filename)
-  whoami  - Display information about the current user
-  clear   - Clear the terminal screen
-  help    - Display this help message
+  ls
+    Lists all available files
+    Example: ls
+
+  cat <filename>
+    Reads and displays the contents of a file
+    Example: cat about.md
+
+  whoami
+    Displays information about the current user
+    Example: whoami
+
+  clear
+    Clears the terminal screen
+    Example: clear
+
+  help
+    Shows this help message with command descriptions and examples
+    Example: help
     `.trim();
   }
 
   return (
-    <div className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {history.map((entry, idx) => (
-        entry.type === "input" ?
-        (<Prompt key={idx} command={entry.content} readonly={true}  />)
-        : (
-          !entry.content.includes("terminalcraft:") ? 
-          <pre key={idx}>{entry.content}</pre>
-          :
-          <pre key={idx} className="text-red-600">{entry.content}</pre>
-        )
-      ))}
+    <div 
+      className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative bg-black"
+      onClick={() => {
+        const activePrompts = Array.from(document.getElementsByTagName('input'))
+          .filter(input => !input.readOnly);
+        if (activePrompts.length > 0) {
+          activePrompts[activePrompts.length - 1].focus();
+        }
+      }}
+    >
+      {/* Terminal Content */}
+      <div >
+        {history.map((entry, idx) => (
+          entry.type === "input" ?
+          (<Prompt key={idx} command={entry.content} readonly={true}  />)
+          : (
+            !entry.content.includes("terminalcraft:") ? 
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full">{entry.content}</pre>
+            :
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full text-red-600">{entry.content}</pre>
+          )
+        ))}
+      </div>
 
       <Prompt 
         command={command}
