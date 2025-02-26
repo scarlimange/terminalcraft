@@ -12,6 +12,15 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        blink: 'blink 1s step-start infinite'
+      },
+      keyframes: {
+        blink: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '0' }
+        }
+      }
     },
   },
   plugins: [],

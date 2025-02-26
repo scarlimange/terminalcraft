@@ -13,9 +13,11 @@ export default function Prompt({ command, setCommand, readonly, handleCommand }:
             if (handleCommand) handleCommand(command);
         }} className="flex flex-row">
             <p className="text-gray-400">you@hackclub ~ %</p>
-            <input {...({ readOnly: readonly })} style={{ width: `${command.length < 1 ? 1 : command.length}ch` }} className="ml-3 focus:outline-none text-white bg-transparent" type="text" value={command} onChange={e => setCommand ? setCommand!(e.target.value) : void 0} />
-            { !readonly ? <span className="w-2 h-5 bg-white"></span> : ""}
-
+            <input {...(readonly ? { readOnly: true, autoFocus: false } : { autoFocus: true })} 
+            style={{ width: `${command.length < 1 ? 1 : command.length}ch` }} 
+            className="ml-3 focus:outline-none text-white bg-transparent caret-transparent" 
+            type="text" value={command} onChange={e => setCommand ? setCommand!(e.target.value) : void 0} />
+            { !readonly ? <span className="w-2 h-5 bg-white animate-blink"></span> : ""}
         </form>
     )
 }
