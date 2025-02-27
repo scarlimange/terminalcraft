@@ -89,7 +89,7 @@ export default function Home() {
   function cat(filename: string) {
     switch (filename) {
       case "about.md":
-        return `# YSWS Hack Club: Browser Plugin: Terminal
+        return `# TerminalCraft YSWS
 
 Get ready to build and publish your own terminal program and earn a **Raspberry Pi 4**! 🎉 This is your chance to create something useful, learn new skills, and get a cool prize.
 
