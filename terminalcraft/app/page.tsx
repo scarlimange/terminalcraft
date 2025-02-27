@@ -56,6 +56,10 @@ export default function Home() {
       case "hackclub": {
         return hackclubFlag();
       }
+      case "submit": {
+        window.open('https://hackclub.com/', '_blank');
+        return "Opening submission form in new tab...";
+      }
       case "clear":
         return ""
       default:
@@ -148,6 +152,7 @@ A: The best terminal projects are:
   function help() {
     return `
 Available commands:
+
   ls
     Lists all available files
     Example: ls
@@ -155,6 +160,7 @@ Available commands:
   cat <filename>
     Reads and displays the contents of a file
     Example: cat about.md
+    Example: cat faq.md
 
   whoami
     Displays information about the current user
@@ -167,6 +173,12 @@ Available commands:
   help
     Shows this help message with command descriptions and examples
     Example: help
+
+  submit
+    Opens the project submission form in a new tab
+    Example: submit
+
+Note: Commands are case-sensitive. Type them exactly as shown.
     `.trim();
   }
 
