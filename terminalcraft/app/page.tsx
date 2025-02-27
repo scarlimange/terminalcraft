@@ -57,7 +57,7 @@ export default function Home() {
         return hackclubFlag();
       }
       case "submit": {
-        window.open('https://hackclub.com/', '_blank');
+        window.open('https://airtable.com/appzR6MIcj5G9A2Fa/pag8jn2axMXOB2lid/form', '_blank');
         return "Opening submission form in new tab...";
       }
       case "exit": {
@@ -103,7 +103,7 @@ Get ready to build and publish your own terminal program and earn a **Raspberry 
 ### Tools You Can Use:
 - **Textualize** (Recommended for web sharing)
 - **Ncurses** (or any other framework)
-  
+
 ## How to Get Involved:
 1. Keep an eye on the **#announcement** channel on Slack for all the details.
 2. Claim your **$5 grant** for a Chrome Web Store license (if applicable).
@@ -196,7 +196,7 @@ Note: Commands are case-sensitive. Type them exactly as shown.
 <div class="flex flex-col items-start">
   <img src="/hackclub.svg" alt="Hack Club Flag" style="width: 300px; height: auto;" />
 
-  <p class="mt-4">You found the secret Hack Club flag! 
+  <p class="mt-4">You found the secret Hack Club flag!
 Keep hacking and building awesome things! 🚀</p>
 </div>
     `.trim();
@@ -211,7 +211,7 @@ Keep hacking and building awesome things! 🚀</p>
   }, [history]);
 
   return (
-    <div 
+    <div
       className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative bg-black"
       onClick={() => {
         const activePrompts = Array.from(document.getElementsByTagName('input'))
@@ -227,8 +227,8 @@ Keep hacking and building awesome things! 🚀</p>
           entry.type === "input" ?
           (<Prompt key={idx} command={entry.content} readonly={true}  />)
           : (
-            !entry.content.includes("terminalcraft:") ? 
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full" 
+            !entry.content.includes("terminalcraft:") ?
+            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full"
                  dangerouslySetInnerHTML={{ __html: entry.content }}
                  style={{ lineHeight: '1.5' }}></pre>
             :
@@ -237,7 +237,7 @@ Keep hacking and building awesome things! 🚀</p>
         ))}
       </div>
 
-      <Prompt 
+      <Prompt
         command={command}
         setCommand={setCommand}
         handleCommand={handleCommand}
