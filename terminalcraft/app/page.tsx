@@ -211,37 +211,66 @@ Keep hacking and building awesome things! 🚀</p>
   }, [history]);
 
   return (
-    <div
-      className="items-start min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative bg-black"
-      onClick={() => {
-        const activePrompts = Array.from(document.getElementsByTagName('input'))
-          .filter(input => !input.readOnly);
-        if (activePrompts.length > 0) {
-          activePrompts[activePrompts.length - 1].focus();
-        }
-      }}
-    >
-      {/* Terminal Content */}
-      <div>
-        {history.map((entry, idx) => (
-          entry.type === "input" ?
-          (<Prompt key={idx} command={entry.content} readonly={true}  />)
-          : (
-            !entry.content.includes("terminalcraft:") ?
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full"
-                 dangerouslySetInnerHTML={{ __html: entry.content }}
-                 style={{ lineHeight: '1.5' }}></pre>
-            :
-            <pre key={idx} className="whitespace-pre-wrap break-words max-w-full text-red-600">{entry.content}</pre>
-          )
-        ))}
-      </div>
+    <div className="p-8 sm:p-20 min-h-screen bg-[#1E1E1E] flex items-center justify-center">
+      {/* macOS Terminal Window */}
+      <div className="w-full max-w-4xl bg-black rounded-lg overflow-hidden shadow-2xl">
+        {/* Terminal Title Bar */}
+        <div className="bg-[#2D2D2D] px-4 py-2 flex items-center gap-2 border-b border-[#404040]">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#FF5F56] flex items-center justify-center">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shadow-inner"></div>
+            </div>
+            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] flex items-center justify-center">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-inner"></div>
+            </div>
+            <div className="w-3 h-3 rounded-full bg-[#27C93F] flex items-center justify-center">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F] shadow-inner"></div>
+            </div>
+          </div>
+          <div className="flex-1 text-center text-sm text-[#808080] font-medium">user@user-mac — terminalcraft</div>
+        </div>
+        
+        {/* Terminal Content */}
+        <div
+          className="p-6 font-mono text-sm relative bg-black"
+          onClick={() => {
+            const activePrompts = Array.from(document.getElementsByTagName('input'))
+              .filter(input => !input.readOnly);
+            if (activePrompts.length > 0) {
+              activePrompts[activePrompts.length - 1].focus();
+            }
+          }}
+        >
+          <div>
+            {history.map((entry, idx) => (
+              entry.type === "input" ? (
+                <div key={idx} className="flex items-start">
+                  <Prompt command={entry.content} readonly={true} />
+                </div>
+              ) : (
+                !entry.content.includes("terminalcraft:") ? (
+                  <pre 
+                    key={idx} 
+                    className="whitespace-pre-wrap break-words max-w-full text-[#4AF626] my-2"
+                    dangerouslySetInnerHTML={{ __html: entry.content }}
+                    style={{ lineHeight: '1.5' }}
+                  ></pre>
+                ) : (
+                  <pre key={idx} className="whitespace-pre-wrap break-words max-w-full text-red-500 my-2">{entry.content}</pre>
+                )
+              )
+            ))}
+          </div>
 
-      <Prompt
-        command={command}
-        setCommand={setCommand}
-        handleCommand={handleCommand}
-      />
+          <div className="flex items-start">
+            <Prompt
+              command={command}
+              setCommand={setCommand}
+              handleCommand={handleCommand}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
