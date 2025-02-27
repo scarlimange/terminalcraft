@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Prompt from "@/components/Prompt";
 
 
@@ -192,6 +192,14 @@ Keep hacking and building awesome things! 🚀</p>
 </div>
     `.trim();
   }
+
+  useEffect(() => {
+    // Scroll to bottom whenever history changes
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, [history]);
 
   return (
     <div 
