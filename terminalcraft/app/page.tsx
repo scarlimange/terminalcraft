@@ -60,6 +60,15 @@ export default function Home() {
         window.open('https://hackclub.com/', '_blank');
         return "Opening submission form in new tab...";
       }
+      case "exit": {
+        document.body.classList.add('crt-off');
+        setTimeout(() => {
+          window.close();
+          // Fallback if window.close() is blocked
+          window.location.href = "about:blank";
+        }, 1000);
+        return "Goodbye! 👋";
+      }
       case "clear":
         return ""
       default:
