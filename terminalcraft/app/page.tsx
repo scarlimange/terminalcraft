@@ -60,6 +60,10 @@ export default function Home() {
         window.open('https://airtable.com/appzR6MIcj5G9A2Fa/pag8jn2axMXOB2lid/form', '_blank');
         return "Opening submission form in new tab...";
       }
+      case "slack": {
+        window.open('https://hackclub.slack.com/archives/C08F58MT3GV', '_blank');
+        return "Opening #terminal-craft channel on Slack...";
+      }
       case "exit": {
         document.body.classList.add('crt-off');
         setTimeout(() => {
@@ -186,6 +190,10 @@ Available commands:
   submit
     Opens the project submission form in a new tab
     Example: submit
+
+  slack
+    Open the #terminal-craft channel on Slack
+    Example: slack
 
 Note: Commands are case-sensitive. Type them exactly as shown.
     `.trim();
