@@ -109,9 +109,10 @@ Get ready to build and publish your own terminal program and earn a **Raspberry 
 - **Ncurses** (or any other framework)
 
 ## How to Get Involved:
-1. Keep an eye on the **#announcement** channel on Slack for all the details.
-2. Claim your **$5 grant** for a Chrome Web Store license (if applicable).
+1. Join the #terminal-craft channel on Slack to ask questions, share progress, or just vibe
+2. Build something sick & ship it!
 3. Submit your project via **Airtable** for review!
+4. Claim your Raspberry Pi 4
 
 ### Prize:
 - **Raspberry Pi 4** 🖥️ (or $35 value)
