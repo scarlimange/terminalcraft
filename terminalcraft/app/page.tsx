@@ -115,7 +115,7 @@ Get ready to build and publish your own terminal program and earn a **Raspberry 
 4. Claim your Raspberry Pi 4
 
 ### Prize:
-- **Raspberry Pi 4** 🖥️ (or $35 value)
+- **Raspberry Pi 4** 🖥️ 
 
 Let's build some awesome terminal apps and hack the world together! 🌟`;
       case "prizes.md":
