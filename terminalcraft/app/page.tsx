@@ -119,7 +119,7 @@ Get ready to build and publish your own terminal program and earn a **Raspberry 
 
 Let's build some awesome terminal apps and hack the world together! 🌟`;
       case "prizes.md":
-        return "Complete all challenges to win exclusive Hack Club stickers and bragging rights!";
+        return "You will get a Raspberry Pi 4 and bragging rights ;)";
       case "faq.md":
         return `# Frequently Asked Questions
 
